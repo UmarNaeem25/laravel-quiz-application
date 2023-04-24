@@ -12,12 +12,12 @@
         }
 
         .card-body {
-            background-color:aquamarine;
+            background-color: burlywood;
             font-weight: bold;
         }
 
         .card-footer {
-            background-color:azure;
+            background-color: azure;
         }
 
         input[type="radio"] {

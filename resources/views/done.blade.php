@@ -12,7 +12,7 @@
         }
 
         .card-body {
-            background-color: aquamarine;
+            background-color: burlywood;
             font-weight: bold;
         }
 
@@ -103,9 +103,9 @@
                                 &nbsp;&nbsp;
 
                                 @if ($score == 1)
-                                    <span>Right!</span>
+                                    <span style="color:green">Right!</span>
                                 @else
-                                    <span>Wrong!</span>
+                                    <span style="color: red">Wrong!</span>
                                 @endif
                                 &nbsp;&nbsp; Correct Answer: {{ $question->right_answer }}
                             </p>
