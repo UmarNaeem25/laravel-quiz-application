@@ -24,17 +24,5 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {   
-        $questions = Question::with('result')->get();
-        $quiz = Result::where('user_id', auth()->user()->id)->get();
-
-        
-        if(count($quiz) > 0){
-            return view('done')->with(['questions'=> $questions, 'quiz'=> $quiz]);
-        }
-        return view('home')->with('questions',$questions);
-    }
-
     
 }

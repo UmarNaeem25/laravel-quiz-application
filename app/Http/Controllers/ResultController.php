@@ -11,6 +11,18 @@ use Validator;
 
 class ResultController extends Controller
 {
+    public function index()
+    {   
+        $questions = Question::with('result')->get();
+        $quiz = Result::where('user_id', auth()->user()->id)->get();
+
+        
+        if(count($quiz) > 0){
+            return view('done')->with(['questions'=> $questions, 'quiz'=> $quiz]);
+        }
+        return view('home')->with('questions',$questions);
+    }
+    
     public function store(Request $request){
 
         DB::beginTransaction();
