@@ -8,16 +8,16 @@
         }
 
         .card-header {
-            background-color: azure;
+            background-color: whitesmoke;
         }
 
         .card-body {
-            background-color: burlywood;
+            background-color:cyan;
             font-weight: bold;
         }
 
         .card-footer {
-            background-color: azure;
+            background-color: whitesmoke;
         }
 
         input[type="radio"] {
@@ -101,7 +101,7 @@
                             @endforeach
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary flex-item">Submit</button>
+                            <button type="submit" class="btn btn-success flex-item">Submit</button>
                             <button type="reset" class="btn btn-warning flex-item">Reset</button>
                             <br>
                         </div>
