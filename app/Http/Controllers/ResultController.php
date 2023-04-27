@@ -38,7 +38,7 @@ class ResultController extends Controller
             $result = DB::table('results')->insert([
             'user_id' => auth()->user()->id,
             'question_id' => $questions[$i]->id,
-            'obtained_marks' => ($options[$i] == $questions[$i]->right_answer) ? 1:0
+            'obtained_marks' => ($options[$i] == $questions[$i]->right_option) ? 1:0
             ]);
     
         }

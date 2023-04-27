@@ -31,7 +31,7 @@ class QuestionSeeder extends Seeder
                 'b' => $question[2],
                 'c' => $question[3],
                 'd' => $question[4],
-                'right_answer' => $question[5],
+                'right_option' => $question[5],
             ]
             );
         }

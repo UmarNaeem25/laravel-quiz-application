@@ -99,7 +99,7 @@
                                 @else
                                     <span style="color: red">Wrong!</span>
                                 @endif
-                                &nbsp;&nbsp; Correct Answer: {{ $question->question->right_answer }}
+                                &nbsp;&nbsp; Correct Answer: {{ $question->question->right_option }}
                             </p>
                             <hr>
                         @endforeach
