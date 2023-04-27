@@ -8,16 +8,16 @@
         }
 
         .card-header {
-            background-color: azure;
+            background-color: lightseagreen;
         }
 
         .card-body {
-            background-color:yellowgreen;
+            background-color:peachpuff;
             font-weight: bold;
         }
 
         .card-footer {
-            background-color: azure;
+            background-color: lightseagreen;
         }
 
         h1 {
@@ -26,7 +26,7 @@
         }
 
         .options {
-            background-color: antiquewhite;
+            background-color: azure;
         }
 
         .options:hover {
