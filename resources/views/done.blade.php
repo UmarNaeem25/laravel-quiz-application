@@ -12,7 +12,7 @@
         }
 
         .card-body {
-            background-color:peachpuff;
+            background-color:azure;
             font-weight: bold;
         }
 
@@ -26,7 +26,7 @@
         }
 
         .options {
-            background-color: azure;
+            background-color: whitesmoke;
         }
 
         .options:hover {
@@ -71,21 +71,21 @@
                             <p>{{ $loop->iteration }}. {{ $question->question->question }}</p>
                             <br>
                             <div class="row justify-content-center">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <input type="radio" disabled />
                                     <label for="option1"><button class="options">a. {{ $question->question->a }}</button></label>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <input type="radio" disabled />
                                     <label for="option2"><button class="options">b. {{ $question->question->b }}</button></label>
                                 </div>
                                 <br>
                                 <br>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <input type="radio" disabled />
                                     <label for="option3"><button class="options">c. {{ $question->question->c }}</button></label>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <input type="radio" disabled />
                                     <label for="option4"><button class="options">d. {{ $question->question->d }}</button></label>
                                 </div>

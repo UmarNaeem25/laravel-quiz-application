@@ -70,13 +70,13 @@
                                 <div class="row justify-content-center">
                                     <input type="radio" name="option[{{ $question->id }}]" style="display: none"
                                         value="" checked />
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <input type="radio" name="option[{{ $question->id }}]" id="option1"
                                             value="a" />
                                         <label for="option1"><button class="options" disabled>a.
                                                 {{ $question->a }}</button></label>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <input type="radio" name="option[{{ $question->id }}]" id="option2"
                                             value="b" />
                                         <label for="option2"><button class="options" disabled>b.
@@ -84,13 +84,13 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <input type="radio" name="option[{{ $question->id }}]" id="option3"
                                             value="c" />
                                         <label for="option3"><button class="options" disabled>c.
                                                 {{ $question->c }}</button></label>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <input type="radio" name="option[{{ $question->id }}]" id="option4"
                                             value="d" />
                                         <label for="option4"><button class="options" disabled>d.
