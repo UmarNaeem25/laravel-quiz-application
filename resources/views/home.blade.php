@@ -59,7 +59,8 @@
                         <h1>Welcome to Quiz</h1>
                     </div>
 
-                    @php $questionNumber = 1; @endphp
+                    <div class="countdown text-end"></div>
+
                     <form class="form" action="{{ route('store') }}" method="POST">
                         @csrf
                         <div class="card-body">
@@ -67,8 +68,8 @@
                                 @foreach ($chunks as $index => $questions)
                                     <div class="question-page" style="{{ $index === 0 ? '' : 'display:none;' }}"
                                         data-page="{{ $index }}">
-                                        @foreach ($questions as $question)
-                                            <p>{{ $questionNumber++ }}. {{ $question->question }}</p>
+                                        @foreach ($questions as $key => $question)
+                                            <p>{{ $key + 1 }}. {{ $question->question }}</p>
                                             <div class="row">
                                                 <input type="hidden" name="option[{{ $question->id }}]" value="">
                                                 <div class="col-md-6">
