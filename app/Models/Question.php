@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Question extends Model
 {
@@ -18,7 +19,7 @@ class Question extends Model
         'right_answer'
     ];
 
-     public function result(){
-        return $this->hasMany(Result::class , 'question_id', 'id');
+    public function users(){
+        return $this->belongsToMany(User::class , 'results');
     }
 }

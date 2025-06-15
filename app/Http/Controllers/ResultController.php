@@ -11,55 +11,85 @@ use Validator;
 
 class ResultController extends Controller
 {
+    // public function index()
+    // {
+    //     $quiz = Result::where('user_id', auth()->user()->id)->where()->get();
+        
+    //     $count = Question::count();
+
+    //     $quizChunks = $quiz->chunk(4);
+
+    //     if ($quiz->count() > 0) {
+    //         return view('done', compact('quiz' , 'quizChunks' , 'count'));
+    //     }
+        
+    //     $questions = Question::with('result')->get();
+    //     $chunks = $questions->chunk(4); 
+        
+    //     return view('home', [
+    //         'chunks' => $chunks,
+    //     ]);
+    // }
+
     public function index()
     {
-        $quiz = Result::where('user_id', auth()->user()->id)->get();
+        $user = auth()->user();
+
+        $newQuiz = $user->questions()
+            ->where('has_done', 0)
+            ->get();
+
+        $oldQuiz =  $user->questions()
+        ->withPivot('obtained_marks' , 'answer')
+        ->where('has_done', 1)
+        ->get();
         
-        $count = Question::count();
+        $marks = $oldQuiz->sum(function ($question) {
+            return $question->pivot->obtained_marks;
+        });
 
-        $quizChunks = $quiz->chunk(4);
+       $count = count($oldQuiz);
 
-        if ($quiz->count() > 0) {
-            return view('done', compact('quiz' , 'quizChunks' , 'count'));
+        if(count($oldQuiz) > 0){
+
+            $quizChunks = $oldQuiz->chunk(4);
+
+            return view('done', compact('quizChunks' , 'marks' , 'count'));
         }
-        
-        $questions = Question::with('result')->get();
-        $chunks = $questions->chunk(4); 
-        
-        return view('home', [
-            'chunks' => $chunks,
-        ]);
+
+
+        $chunks = $newQuiz->chunk(4);
+
+        return view('home', compact('chunks'));
     }
+
     
-    
+
     public function store(Request $request){
-        
-        $questions=Question::all();
-        
-        $options= array_values($request->option);
-        
-        for($i=0; $i<count($questions); $i++){
-            
-            $result = DB::table('results')->insert([
-                'user_id' => auth()->user()->id,
-                'question_id' => $questions[$i]->id,
-                'answer' => $options[$i],
-                'obtained_marks' => ($options[$i] == $questions[$i]->right_option) ? 1:0
+
+        $user = auth()->user();
+
+        foreach($request->option as $key => $value){
+
+            $questionId = Question::find($key);
+
+            $isCorrect = ($value == $questionId->right_option) ? 1 : 0;
+           
+            $user->questions()->updateExistingPivot($questionId, [
+                'answer' => $value,
+                'obtained_marks' => $isCorrect,
+                'has_done' => 1
             ]);
-            
         }
-        
-        if ($result){
-            DB::commit();
-            return redirect()->route('login');
-        }
-        
-        
+
+        return redirect()->route('home');
     }
 
     public function redo(){
 
-        $quiz = Result::where('user_id', auth()->user()->id)->delete();
+        $user = auth()->user();
+
+        Result::where('user_id' , $user->id)->update(['has_done' => '0' , 'obtained_marks' =>'0' , 'answer' => '']);
 
         return redirect()->route('home');
     }

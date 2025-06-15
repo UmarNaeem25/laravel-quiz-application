@@ -70,7 +70,7 @@
                 <br>
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <p style="font-weight: bold; font-size:18px">You have scored {{ $quiz->sum('obtained_marks') }} marks
+                        <p style="font-weight: bold; font-size:18px">You have scored {{ $marks }} marks
                             out of
                             {{ $count }}</p>
                         <form action="{{ route('redo') }}" method="POST" style="display:inline;">
@@ -87,22 +87,22 @@
                                     data-page="{{ $chunkIndex }}">
                                     @foreach ($chunk as $questionIndex => $question)
                                         @php
-                                            $selectedOption = $question->selected_option ?? null;
-                                            $correctOption = $question->question->right_option;
+                                            // dd($question);
+                                            $correctOption = $question->right_option;
                                         @endphp
 
                                         <p><strong>{{ $loop->iteration + $chunkIndex * 4 }}.</strong>
-                                            {{ $question->question->question }}</p>
+                                            {{ $question->question }}</p>
 
                                         <div class="row justify-content-center">
                                             @foreach (['a', 'b', 'c', 'd'] as $opt)
                                                 <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
                                                     <label class="d-block">
-                                                        <input type="radio" name="question_{{ $question->question->id }}"
+                                                        <input type="radio" name="question_{{ $question->id }}"
                                                             value="{{ $opt }}" disabled
-                                                            {{ $question->answer === $opt ? 'checked' : '' }}>
+                                                            {{ $question->pivot->answer === $opt ? 'checked' : '' }}>
                                                         <span class="ms-2">
-                                                            {{ $opt }}. {{ $question->question->$opt }}
+                                                            {{ $opt }}. {{ $question->$opt }}
                                                         </span>
                                                     </label>
                                                 </div>
@@ -110,13 +110,13 @@
                                         </div>
 
                                         <p id="correct_answer" class="mb-4">
-                                            @if ($question->obtained_marks == 1)
+                                            @if ($question->pivot->obtained_marks == 1)
                                                 <span style="color:green">Right!</span>
                                             @else
                                                 <span style="color:red">Wrong!</span>
                                             @endif
                                             &nbsp;&nbsp; Correct Answer:
-                                            <strong>{{ $question->question->right_option }}</strong>
+                                            <strong>{{ $question->right_option }}</strong>
                                         </p>
                                         <hr>
                                     @endforeach
