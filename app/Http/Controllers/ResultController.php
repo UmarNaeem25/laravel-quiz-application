@@ -69,13 +69,18 @@ class ResultController extends Controller
     }
     
     
-    public function redo(){
-        
-        $user = auth()->user();
-        
-        Result::where('user_id' , $user->id)->update(['has_done' => '0' , 'obtained_marks' =>'0' , 'answer' => '']);
-        
+    public function redo()
+    {
+        $userId = auth()->id();
+
+        Result::where('user_id', $userId)->update([
+            'has_done' => 0,
+            'obtained_marks' => 0,
+            'answer' => '',
+        ]);
+
         return redirect()->route('home');
     }
+
     
 }

@@ -8,7 +8,7 @@
             $pages.hide();
             $pages.eq(index).show();
 
-            $('#prevBtn').prop('disabled', index === 0);
+            $('#prevBtn').toggle(index > 0);
 
             $('#nextBtn').toggle(index < totalPages - 1);
 

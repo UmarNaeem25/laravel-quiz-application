@@ -97,7 +97,8 @@
                         </div>
 
                         <div class="card-footer text-center d-flex justify-content-center gap-2">
-                            <button type="button" id="prevBtn" class="btn btn-secondary" disabled>Previous</button>
+                            <button type="button" id="prevBtn" class="btn btn-secondary"
+                                style="display: none">Previous</button>
                             <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
                             <button type="submit" id="submitBtn" class="btn btn-success d-none">Submit</button>
                         </div>
