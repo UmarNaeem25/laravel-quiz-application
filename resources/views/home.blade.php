@@ -13,7 +13,7 @@
 
         .card-body {
             background-color: turquoise;
-            font-weight: bold;
+            font-weight: 400;
         }
 
         .card-footer {
@@ -55,12 +55,12 @@
             <div class="col-8 mx-auto">
                 <br>
                 <div class="card">
-                    <div class="card-header">
-                        <h1>Welcome to Quiz</h1>
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h2 class="mx-auto text-center mb-2 mt-2">Welcome to Quiz</h2>
+                        <div class="countdown text-end" style="min-width: 50px;">
+
+                        </div>
                     </div>
-
-                    <div class="countdown text-end"></div>
-
                     <form class="form" action="{{ route('store') }}" method="POST">
                         @csrf
                         <div class="card-body">
@@ -69,7 +69,7 @@
                                     <div class="question-page" style="{{ $index === 0 ? '' : 'display:none;' }}"
                                         data-page="{{ $index }}">
                                         @foreach ($questions as $key => $question)
-                                            <p>{{ $key + 1 }}. {{ $question->question }}</p>
+                                            <p><b>{{ $key + 1 }}</b>. {{ $question->question }}</p>
                                             <div class="row">
                                                 <input type="hidden" name="option[{{ $question->id }}]" value="">
                                                 <div class="col-md-6">

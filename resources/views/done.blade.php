@@ -13,7 +13,7 @@
 
         .card-body {
             background-color: rgb(240, 210, 173);
-            font-weight: bold;
+            font-weight: 400;
         }
 
         .card-footer {
@@ -61,7 +61,6 @@
             accent-color: blue;
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
     <div class="container">
