@@ -40,7 +40,7 @@
         }
 
         if (!localStorage.getItem('timer') && $('#submitBtn').length > 0) {
-            localStorage.setItem('timer', "1:01");
+            localStorage.setItem('timer', "5:01");
         }
 
         var timer2 = localStorage.getItem('timer');
@@ -59,8 +59,8 @@
             if (minutes < 0) {
                 clearInterval(interval);
                 localStorage.removeItem('timer');
-                // $('.form').submit();
-                // return;
+                $('.form').submit();
+                return;
             }
 
             seconds = (seconds < 10) ? '0' + seconds : seconds;
