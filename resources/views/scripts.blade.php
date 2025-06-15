@@ -59,8 +59,8 @@
             if (minutes < 0) {
                 clearInterval(interval);
                 localStorage.removeItem('timer');
-                $('.form').submit();
-                return;
+                // $('.form').submit();
+                // return;
             }
 
             seconds = (seconds < 10) ? '0' + seconds : seconds;

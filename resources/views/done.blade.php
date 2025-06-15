@@ -87,7 +87,6 @@
                                     data-page="{{ $chunkIndex }}">
                                     @foreach ($chunk as $questionIndex => $question)
                                         @php
-                                            // dd($question);
                                             $correctOption = $question->right_option;
                                         @endphp
 
