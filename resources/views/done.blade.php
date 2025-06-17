@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="card-footer text-center d-flex justify-content-center gap-2">
-                        <button type="button" id="prevBtn" class="btn btn-secondary" disabled>Previous</button>
+                        <button type="button" id="prevBtn" class="btn btn-secondary">Previous</button>
                         <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
                     </div>
                 </div>
